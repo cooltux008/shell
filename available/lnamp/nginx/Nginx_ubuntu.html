@@ -1,0 +1,673 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh" dir="ltr">
+<head>
+               <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="verify-v1" content="tQmdIA0A40oxMSeeRiXDaxmk+ZMoOvRptLxa4dt7C+w=" />
+                <meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="generator" content="MediaWiki 1.15.3" />
+		<meta name="keywords" content="Nginx,Apache,PHP5.2" />
+		<link rel="alternate" type="application/x-wiki" title="编辑" href="/index.php?title=Nginx&amp;action=edit" />
+		<link rel="edit" title="编辑" href="/index.php?title=Nginx&amp;action=edit" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Ubuntu中文 (zh)" />
+		<link rel="alternate" type="application/rss+xml" title="Ubuntu中文的RSS订阅" href="/index.php?title=Special:%E6%9C%80%E8%BF%91%E6%9B%B4%E6%94%B9&amp;feed=rss" />
+		<link rel="alternate" type="application/atom+xml" title="Ubuntu中文的Atom订阅" href="/index.php?title=Special:%E6%9C%80%E8%BF%91%E6%9B%B4%E6%94%B9&amp;feed=atom" />
+                <title>Nginx - Ubuntu中文</title>
+                <link rel="stylesheet" href="/skins/common/shared.css?207" type="text/css" media="screen" />
+		<link rel="stylesheet" href="/skins/common/commonPrint.css?207" type="text/css" media="print" />
+		<link rel="stylesheet" href="/skins/ubuntuchina/main.css?207" type="text/css" media="screen" />
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/monobook/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins/monobook/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins/monobook/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="/index.php?title=MediaWiki:Common.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="/index.php?title=MediaWiki:Print.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" media="print" />
+		<link rel="stylesheet" href="/index.php?title=MediaWiki:Ubuntuchina.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" type="text/css" />
+		<link rel="stylesheet" href="/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" type="text/css" />
+                <!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+                <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+                <script type= "text/javascript">/*<![CDATA[*/
+		var skin = "ubuntuchina";
+		var stylepath = "/skins";
+		var wgArticlePath = "/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "http://wiki.ubuntu.org.cn";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "Nginx";
+		var wgTitle = "Nginx";
+		var wgAction = "view";
+		var wgArticleId = "38387";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "zh";
+		var wgContentLanguage = "zh";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 150380;
+		var wgVersion = "1.15.3";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+                
+                <script type="text/javascript" src="/skins/common/wikibits.js?207"><!-- wikibits js --></script>
+                <script type="text/javascript" src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=ubuntuchina"><!-- site js --></script>
+                <!-- Head Scripts -->
+		<script type="text/javascript" src="/skins/common/ajax.js?207"></script>
+</head>
+
+<body >
+<div id="container">
+	<div id="mastWrapper">
+        <div id="masthead">
+            <div id="nav1">
+                <ul>
+
+				         <li><a href="http://www.ubuntu.org.cn/">Ubuntu</a></li>
+                                         <li><a href="http://forum.ubuntu.org.cn">Forum</a></li>
+                                         <li id="current"><a href="http://wiki.ubuntu.org.cn">Wiki</a></li>
+                                         <li><a href="http://linux.ubuntu.org.cn">Linux</a></li>
+                                         <li><a href="http://blog.ubuntu.org.cn/">Blog</a></li>
+                                         <li><a href="http://paste.ubuntu.org.cn">Paste</a></li>
+                                         <li><a href="http://webchat.freenode.net/?channels=ubuntu-cn">Chat</a></li>
+
+                </ul>
+            </div>
+        		<form name="searchform" action="/Special:%E6%90%9C%E7%B4%A2" id="search">
+    			<div style="text-align:right">
+    			<label for="q">搜索</label>
+    			<input id="q" name="search" type="text"
+    			accesskey="f" value="" />
+    			<input type="submit" name="go" class="searchButton" id="searchGoButton"
+    	        value="进入"
+    	        />&nbsp;<input type="submit" name="fulltext"
+    	        class="searchButton"
+    	        value="搜索" />
+    	       </div>
+    		</form>
+    	</div>
+    	<div id="bar">
+    		<ul>
+    		   	<li
+    		       class="selected"    		       ><a href="/Nginx">页面</a></li><li
+    		           		       ><a href="/Talk:Nginx">讨论</a></li><li
+    		           		       ><a href="/index.php?title=Nginx&amp;action=edit">编辑</a></li><li
+    		           		       ><a href="/index.php?title=Nginx&amp;action=history">历史</a></li><li
+    		           		       ><a href="/index.php?title=Nginx&amp;variant=zh-hans">简体</a></li><li
+    		           		       ><a href="/index.php?title=Nginx&amp;variant=zh-hant">繁体</a></li>    		</ul>
+        </div>
+    </div>
+    <p>&nbsp;</p>
+	<div id="mBody">
+	
+		<div id="side">
+			<ul id="nav">
+								<li><span>导航</span>
+						<ul>
+										<li id="n-mainpage-description"><a href="/%E9%A6%96%E9%A1%B5">首页</a></li>
+										<li id="n-recentchanges"><a href="/Special:%E6%9C%80%E8%BF%91%E6%9B%B4%E6%94%B9">最近更改</a></li>
+										<li id="n-randompage"><a href="/Special:%E9%9A%8F%E6%9C%BA%E9%A1%B5%E9%9D%A2">随机页面</a></li>
+										<li id="n-页面分类"><a href="/Category:%E9%A1%B5%E9%9D%A2%E5%88%86%E7%B1%BB">页面分类</a></li>
+										<li id="n-help"><a href="/Help:%E7%9B%AE%E5%BD%95">帮助</a></li>
+									</ul>
+					</li>
+								<li><span>编辑</span>
+						<ul>
+										<li id="n-编辑指南"><a href="/Category:%E8%B4%A1%E7%8C%AE">编辑指南</a></li>
+										<li id="n-沙盒"><a href="/%E6%B2%99%E7%9B%92">沙盒</a></li>
+										<li id="n-currentevents"><a href="/Ubuntu%E4%B8%AD%E6%96%87:%E5%BD%93%E5%89%8D%E4%BA%8B%E4%BB%B6">当前事件</a></li>
+										<li id="n-字词处理"><a href="/MediaWiki:Conversiontable/zh-hant">字词处理</a></li>
+									</ul>
+					</li>
+								<li><span>工具箱</span>
+					<ul>
+					  					  <li id="t-whatlinkshere"><a href="/Special:%E9%93%BE%E5%85%A5%E9%A1%B5%E9%9D%A2/Nginx">链入页面</a></li>
+					  					  <li id="t-recentchangeslinked"><a href="/Special:%E9%93%BE%E5%87%BA%E6%9B%B4%E6%94%B9/Nginx">链出更改</a></li>
+					  				      				      				      				      				      				      				      				      				      <li id="t-specialpages"><a href="/Special:%E7%89%B9%E6%AE%8A%E9%A1%B5%E9%9D%A2">所有特殊页面</a></li>				      					</ul>
+				</li>
+				<li><span>个人工具</span>
+					<ul>
+					<li id="pt-login"><a href="/index.php?title=Special:%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95&amp;returnto=Nginx">登录</a></li>					</ul>
+				</li>
+							</ul>
+		</div><!-- end of SIDE div -->
+		
+		<div id="mainContent">
+			
+			<h1>Nginx</h1>
+			<h3 id="siteSub">出自Ubuntu中文</h3>
+			<div id="contentSub"></div>
+									<!-- start content -->
+			<table id="toc" class="toc" summary="目录"><tr><td><div id="toctitle"><h2>目录</h2></div>
+<ul>
+<li class="toclevel-1"><a href="#.E5.AE.89.E8.A3.85nginx"><span class="tocnumber">1</span> <span class="toctext">安装nginx</span></a></li>
+<li class="toclevel-1"><a href="#.E5.90.AF.E5.8A.A8nginx"><span class="tocnumber">2</span> <span class="toctext">启动nginx</span></a></li>
+<li class="toclevel-1"><a href="#.E9.85.8D.E7.BD.AEphp.E5.92.8Cmysql"><span class="tocnumber">3</span> <span class="toctext">配置php和mysql</span></a>
+<ul>
+<li class="toclevel-2"><a href="#.E5.AE.89.E8.A3.85Php.E5.92.8Cmysql"><span class="tocnumber">3.1</span> <span class="toctext">安装Php和mysql</span></a></li>
+<li class="toclevel-2"><a href="#.E5.AE.89.E8.A3.85FastCgi"><span class="tocnumber">3.2</span> <span class="toctext">安装FastCgi</span></a></li>
+<li class="toclevel-2"><a href="#.E9.85.8D.E7.BD.AE_nginx"><span class="tocnumber">3.3</span> <span class="toctext">配置 nginx</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#.E5.AE.89.E8.A3.85nginx_.2Buwsgi.2B_Django"><span class="tocnumber">4</span> <span class="toctext">安装nginx +uwsgi+ Django</span></a></li>
+<li class="toclevel-1"><a href="#.E9.85.8D.E7.BD.AE_nginx_uwsgi_django"><span class="tocnumber">5</span> <span class="toctext">配置 nginx uwsgi django</span></a></li>
+<li class="toclevel-1"><a href="#uwsgi.E9.85.8D.E7.BD.AE"><span class="tocnumber">6</span> <span class="toctext">uwsgi配置</span></a></li>
+<li class="toclevel-1"><a href="#.E9.85.8D.E7.BD.AEdjango"><span class="tocnumber">7</span> <span class="toctext">配置django</span></a></li>
+<li class="toclevel-1"><a href="#no_input_file_specified.E9.94.99.E8.AF.AF"><span class="tocnumber">8</span> <span class="toctext">no input file specified错误</span></a></li>
+<li class="toclevel-1"><a href="#.E5.AE.89.E8.A3.85Zend_Optimizer"><span class="tocnumber">9</span> <span class="toctext">安装Zend Optimizer</span></a></li>
+<li class="toclevel-1"><a href="#.E5.AE.89.E8.A3.9DXCache"><span class="tocnumber">10</span> <span class="toctext">安裝XCache</span></a></li>
+<li class="toclevel-1"><a href="#.E5.AE.89.E8.A3.85eAccelerator"><span class="tocnumber">11</span> <span class="toctext">安装eAccelerator</span></a></li>
+<li class="toclevel-1"><a href="#.E5.B1.8F.E8.94.BD.E8.BF.85.E9.9B.B7"><span class="tocnumber">12</span> <span class="toctext">屏蔽迅雷</span></a></li>
+<li class="toclevel-1"><a href="#.E5.8F.82.E8.80.83"><span class="tocnumber">13</span> <span class="toctext">参考</span></a></li>
+<li class="toclevel-1"><a href="#.E4.BA.86.E8.A7.A3.E6.9B.B4.E5.A4.9A"><span class="tocnumber">14</span> <span class="toctext">了解更多</span></a></li>
+</ul>
+</td></tr></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "显示"; var tocHideText = "隐藏"; showTocToggle(); } </script>
+<a name=".E5.AE.89.E8.A3.85nginx" id=".E5.AE.89.E8.A3.85nginx"></a><h2><span class="editsection">[<a href="/index.php?title=Nginx&amp;action=edit&amp;section=1" title="编辑段落：安装nginx">编辑</a>]</span> <span class="mw-headline">安装nginx</span></h2>
+<pre>sudo apt-get install nginx</pre>
+<p>Ubuntu安装之后的文件结构大致为：
+</p>
+<ul><li> 所有的配置文件都在/etc/nginx下，并且每个虚拟主机已经安排在了/etc/nginx/sites-available下
+</li><li> 程序文件在/usr/sbin/nginx
+</li><li> 日志放在了/var/log/nginx中
+</li><li> 并已经在/etc/init.d/下创建了启动脚本nginx
+</li><li> 默认的虚拟主机的目录设置在了/var/www/nginx-default (有的版本 默认的虚拟主机的目录设置在了/var/www, 请参考/etc/nginx/sites-available里的配置)
+</li></ul>
+<a name=".E5.90.AF.E5.8A.A8nginx" id=".E5.90.AF.E5.8A.A8nginx"></a><h2><span class="editsection">[<a href="/index.php?title=Nginx&amp;action=edit&amp;section=2" title="编辑段落：启动nginx">编辑</a>]</span> <span class="mw-headline">启动nginx</span></h2>
+<pre>
+sudo /etc/init.d/nginx start
+</pre>
+<p>然后就可以访问了，<a href="http://localhost/" class="external free" title="http://localhost/" rel="nofollow">http://localhost/</a> ， 一切正常！如果不能访问，先不要继续，看看是什么原因，解决之后再继续。
+启动时候若显示端口80被占用：
+Starting nginx: [emerg]: bind() to 0.0.0.0:80 failed (98: Address already in use)
+修改文件：/etc/nginx/sites-available/default,去掉  listen  前面的  # 号 , # 号在该文件里是注释的意思 , 并且把  listen 后面的 80 端口号改为自己的端口，访问是需要添加端口号。
+</p><p>（安装完后如出现403错误，那可能是nginx配置文件里的网站路径不正确）
+</p>
+<table>
+<tr>
+<td><div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:502px;"><a href="/File:Nginxdefault.png" class="image" title="nginx默认页面"><img alt="" src="/images/thumb/f/f0/Nginxdefault.png/500px-Nginxdefault.png" width="500" height="183" border="0" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/File:Nginxdefault.png" class="internal" title="放大"><img src="/skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>nginx默认页面</div></div></div></div>
+</td></tr></table>
+<a name=".E9.85.8D.E7.BD.AEphp.E5.92.8Cmysql" id=".E9.85.8D.E7.BD.AEphp.E5.92.8Cmysql"></a><h2><span class="editsection">[<a href="/index.php?title=Nginx&amp;action=edit&amp;section=3" title="编辑段落：配置php和mysql">编辑</a>]</span> <span class="mw-headline">配置php和mysql</span></h2>
+<a name=".E5.AE.89.E8.A3.85Php.E5.92.8Cmysql" id=".E5.AE.89.E8.A3.85Php.E5.92.8Cmysql"></a><h3><span class="editsection">[<a href="/index.php?title=Nginx&amp;action=edit&amp;section=4" title="编辑段落：安装Php和mysql">编辑</a>]</span> <span class="mw-headline">安装Php和mysql</span></h3>
+<p>安装php和MySQL:
+</p>
+<pre>
+sudo apt-get install php5-cli php5-cgi mysql-server php5-mysql
+</pre>
+<a name=".E5.AE.89.E8.A3.85FastCgi" id=".E5.AE.89.E8.A3.85FastCgi"></a><h3><span class="editsection">[<a href="/index.php?title=Nginx&amp;action=edit&amp;section=5" title="编辑段落：安装FastCgi">编辑</a>]</span> <span class="mw-headline">安装FastCgi</span></h3>
+<p>/usr/bin/spawn-fcgi这个文件来管理 FastCgi，它原属于lighttpd这个包里面，但 9.10 后，spawn-fcgi 被分离出来单独成包：
+</p>
+<pre>
+sudo apt-get install spawn-fcgi
+</pre>
+<a name=".E9.85.8D.E7.BD.AE_nginx" id=".E9.85.8D.E7.BD.AE_nginx"></a><h3><span class="editsection">[<a href="/index.php?title=Nginx&amp;action=edit&amp;section=6" title="编辑段落：配置 nginx">编辑</a>]</span> <span class="mw-headline">配置 nginx</span></h3>
+<p>修改nginx的配置文件：/etc/nginx/sites-available/default
+修改主机名：
+</p>
+<pre>
+ server_name localhost;
+</pre>
+<p>修改index的一行修改为：
+</p>
+<pre>
+index index.php index.html index.htm;
+</pre>
+<p>去掉下面部分的注释用于支持 php 脚本：
+</p>
+<pre>
+location ~ \.php$ {
+fastcgi_pass 127.0.0.1:9000;
+fastcgi_index index.php;
+fastcgi_param SCRIPT_FILENAME /var/www/nginx-default$fastcgi_script_name;
+include /etc/nginx/fastcgi_params;
+}
+</pre>
+<p>重新启动nginx:
+</p>
+<pre>
+/etc/init.d/nginx stop
+/etc/init.d/nginx start
+</pre>
+<p>启动fastcgi php:
+</p>
+<pre>
+spawn-fcgi -a 127.0.0.1 -p 9000 -C 10 -u www-data -f /usr/bin/php-cgi
+</pre>
+<p>为了让php-cgi开机自启动：
+Ubuntu开机之后会执行/etc/rc.local文件中的脚本
+所以我们可以直接在/etc/rc.local中添加启动脚本。
+spawn-fcgi -a 127.0.0.1 -p 9000 -C 10 -u www-data -f /usr/bin/php-cgi
+添加到语句：exit 0 前面才行
+</p><p>创建、测试phpinfo：
+</p>
+<pre>sudo vi /var/www/nginx-default/info.php</pre>
+<pre>&lt;?php phpinfo();&nbsp;?&gt;</pre>
+<p>打开 <a href="http://localhost/info.php" class="external free" title="http://localhost/info.php" rel="nofollow">http://localhost/info.php</a> 。
+</p>
+<table>
+<tr>
+<td><div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:602px;"><a href="/File:Nginxphpinfo.png" class="image" title="Nginx phpinfo页面"><img alt="" src="/images/thumb/7/76/Nginxphpinfo.png/600px-Nginxphpinfo.png" width="600" height="310" border="0" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/File:Nginxphpinfo.png" class="internal" title="放大"><img src="/skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>Nginx phpinfo页面</div></div></div></div>
+</td></tr></table>
+<a name=".E5.AE.89.E8.A3.85nginx_.2Buwsgi.2B_Django" id=".E5.AE.89.E8.A3.85nginx_.2Buwsgi.2B_Django"></a><h2><span class="editsection">[<a href="/index.php?title=Nginx&amp;action=edit&amp;section=7" title="编辑段落：安装nginx +uwsgi+ Django">编辑</a>]</span> <span class="mw-headline">安装nginx +uwsgi+ Django</span></h2>
+<p>这次采用 uwsgi 1.2+django1.4+nginx1.1.19+ubuntu12.04组合进行安装
+</p><p>首先注意 要安装比较新的软件 如果你是ubuntu11.04和11.10 因为内核不同 所以安装软件版本不同
+</p><p>1.首先 安装nginx：
+sudo apt-get install nginx
+2.然后：
+进行uwsgi的安装之前 要安装其他几个：
+sudo apt-get install mysql-server libxml2 libxml2-dev python-dev libpcre3 libpcre3-dev python-MySQLdb 
+3.进行uwsgi的安装：
+可能由于软件版本不够新吧 ppa里头安装后出现502错误 所以 
+用软件包安装：
+</p>
+<ol><li>wget <a href="http://projects.unbit.it/downloads/uwsgi-1.2.tar.gz" class="external free" title="http://projects.unbit.it/downloads/uwsgi-1.2.tar.gz" rel="nofollow">http://projects.unbit.it/downloads/uwsgi-1.2.tar.gz</a>
+</li><li>tar zxvf uwsgi-1.2.tar.gz
+</li><li>cd uwsgi-1.2
+</li><li>make
+</li><li>cp uwsgi /usr/bin
+</li></ol>
+<p>注：如果在MAKE 过程中出现如：（Python.h：没有那个文件或目录） 
+</p>
+<pre>       解决方法：sudo apt-get install python-dev 
+</pre>
+<p>4.安装django
+之前我用ubuntu源安装.由于admin管理的静态问题.所以我还是改用下载安装比较好.
+google下django
+然后进入下载   <a href="https://www.djangoproject.com/download/" class="external free" title="https://www.djangoproject.com/download/" rel="nofollow">https://www.djangoproject.com/download/</a>
+用chrome下载默认/home/helios/下载     
+然后cd
+然后cd 下载
+接着  tar xzvf Django-1.4.tar.gz
+cd Django-1.4
+sudo python setup.py install
+这是最新版本.copy官网的安装方法.
+接着 sudo cp django/bin/django-admin.py /usr/bin/
+接下来 sudo mv /usr/bin/django-admin.py /usr/bin/django-admin
+这是为了和源安装在操作上保持一致  但是不知道有没有问题.暂时没有发现问题.有问题大家可以上来补教程.
+可以了.
+安装好了.
+</p>
+<hr />建立项目------------------------
+<p>1.cd
+2.django-admin startproject mysite
+</p><p>|-mysite
+|--mysite,manage.py
+|---__init__.py ,settings.py,  urls.py
+</p><p>现在 就是刚刚说的admin静态文件的问题.
+我现在把刚刚下载的django安装包的解压文件夹里头  /home/helios/下载/Django-1.4/django/contrib/admin下static文件夹直接复制到mysite下
+</p><p><br />
+这样保持localhost/admin可以出现正常页面不再是没有样式的了.
+</p>
+<hr />另一种解决admin静态方法问题--------
+<p>sudo chmod -R 777 文件夹路径.这个是给予文件夹下所有子文件子文件夹权限.
+</p><p>那么可以从源安装django了
+sudo apt-get install python-django
+然后
+mkdir /home/helios/mysite/static/admin
+cp -rf /usr/lib/python2.7/dist-packages/django/contrib/admin/media /home/helios/mysite/static/admin
+sudo chmod -R 777 /home/helios/mysite/static/admin
+这样就ok了
+</p>
+<a name=".E9.85.8D.E7.BD.AE_nginx_uwsgi_django" id=".E9.85.8D.E7.BD.AE_nginx_uwsgi_django"></a><h2><span class="editsection">[<a href="/index.php?title=Nginx&amp;action=edit&amp;section=8" title="编辑段落：配置 nginx uwsgi django">编辑</a>]</span> <span class="mw-headline"> 配置 nginx uwsgi django </span></h2>
+<pre> 交代下环境：
+</pre>
+<p>1 我的电脑用户名：helios；
+</p><p><br />
+</p>
+<hr />
+<ol><li>sudo vim /etc/nginx/sites-available/default
+</li></ol>
+<p>出现nginx代码：（序列号不要抄）
+1.listen   80;
+2.root     /home/helios/mysite;
+3.server_name    youdomain.com#域名 或者当地localhost；
+4.location / {
+</p>
+<pre>               uwsgi_pass    127.0.0.1:9000;
+               include uwsgi_params;
+               access_log  off;
+       }
+</pre>
+<p>5.location /static/ {
+</p>
+<pre>               alias /home/helios/mysite/static;
+</pre>
+<p>		autoindex on;
+		allow 127.0.0.1;
+		deny all;
+}
+6.location /static/admin/ {
+</p>
+<pre>              alias /home/helios/mysite/static/admin;
+</pre>
+<p>		autoindex on;
+		allow 127.0.0.1;
+		deny all;
+</p><p>}
+7.location ~ ^.+\.(gif|jpg|png|ico|jpeg)$ {
+</p>
+<pre>           expires 3d;
+   }
+</pre>
+<p>8.location ~ ^.+\.(css|js)$ {
+</p>
+<pre>           expires 12h;
+   }
+</pre>
+<p>然后
+</p>
+<ol><li>vim /etc/nginx/nginx.conf
+</li></ol>
+<p>1. user  helios;
+2. 把所有gzip开头的前面#号都去掉除了Gzip setting
+现在 把nginx配置都配好了
+</p>
+<a name="uwsgi.E9.85.8D.E7.BD.AE" id="uwsgi.E9.85.8D.E7.BD.AE"></a><h2><span class="editsection">[<a href="/index.php?title=Nginx&amp;action=edit&amp;section=9" title="编辑段落：uwsgi配置">编辑</a>]</span> <span class="mw-headline"> uwsgi配置 </span></h2>
+<ol><li>cd /home/helios/mysite
+</li><li>vim wsgi.py
+</li></ol>
+<p>写上
+import os
+import sys
+from django.core.handlers.wsgi import WSGIHandler
+sys.path.append("/home/helios/mysite")
+os.environ["DJANGO_SETTINGS_MODULE"] = "mysite.settings"
+application = WSGIHandler()
+完了以后
+</p>
+<ol><li>vim wsgi.xml
+</li></ol>
+<p>写上
+</p>
+<hr />
+<p>&lt;uwsgi&gt;
+</p>
+<pre> &lt;socket&gt;127.0.0.1:9000&lt;/socket&gt;
+ &lt;listen&gt;80&lt;/listen&gt;
+ &lt;master&gt;true&lt;/master&gt;
+ &lt;pidfile&gt;/var/run/nginx.pid&lt;/pidfile&gt;
+ &lt;processes&gt;8&lt;/processes&gt;
+ &lt;pythonpath&gt;/home/helios/mysite&lt;/pythonpath&gt;
+ &lt;pythonpath&gt;/home/helios/&lt;/pythonpath&gt;
+ &lt;module&gt;wsgi&lt;/module&gt;
+ &lt;profiler&gt;true&lt;/profiler&gt;
+ &lt;memory-report&gt;true&lt;/memory-report&gt;
+ &lt;enable-threads&gt;true&lt;/enable-threads&gt;
+ &lt;logdate&gt;true&lt;/logdate&gt;
+ &lt;limit-as&gt;300&lt;/limit-as&gt;#这个是程序占用大小 不能太小 太大暂时还不知道 在测试过程 中 我的电脑300以下目测不行。也可以删除这段 因为在测试过程中 如果这段设置太小 会出现问题libgcc_s.so.1 must be installed for pthread_cancel to work   只有在 ubuntu 12.04测试过 其他系统还不清楚 为了不容易出错可以删掉 但是这个提示给有需要的朋友
+ &lt;daemonize&gt;/home/helios/mysite/log/django.log&lt;/daemonize&gt;#-------看到这里 自己建立文件夹 然后创建空文件django.log这个灵活的
+</pre>
+<p>&lt;/uwsgi&gt;
+</p>
+<hr />
+<a name=".E9.85.8D.E7.BD.AEdjango" id=".E9.85.8D.E7.BD.AEdjango"></a><h2><span class="editsection">[<a href="/index.php?title=Nginx&amp;action=edit&amp;section=10" title="编辑段落：配置django">编辑</a>]</span> <span class="mw-headline"> 配置django </span></h2>
+<p>刚刚配置nginx里头有看到这两段把：
+</p><p><br />
+</p><p>location /static/ {
+</p>
+<pre>               root /home/helios/mysite;
+               access_log  off;
+</pre>
+<p>}
+location /static/admin/ {
+</p>
+<pre>               root /home/helios/mysite/static;
+               access_log off;
+</pre>
+<p>}
+好了 现在终端：
+</p>
+<ol><li>cd /home/helios/mysite
+</li><li>vim settings.py
+</li></ol>
+<p>看到 
+ADMIN_MEDIA_PREFIX
+STATIC_URL
+这两个参数 就是指向这里 如果还有问题 
+我的参数不是这俩 另外的 你可以参考：
+MEDIA_ROOT = '/home/helios/mysite/static'
+MEDIA_URL = '/static/'
+ADMIN_MEDIA_PREFIX = '/static/admin/'
+然后 数据库问题：
+我的是mysql数据库：
+终端
+</p>
+<ol><li>cd /home/helios/mysite
+</li><li>mysql -h localhost -u root -p
+</li></ol>
+<p>Enter password******
+&gt;create database mysite default character set utf8;(因为要记录中文 所以默认utf8)
+&gt;quit
+</p>
+<ol><li>vim settings.py
+</li></ol>
+<p>DATABASES = {
+</p>
+<pre>   'default': {
+       'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+       'NAME': 'mysite',                      # Or path to database file if using sqlite3.
+       'USER': 'root',                      # Not used with sqlite3.
+       'PASSWORD': '*******',                  # Not used with sqlite3.
+       'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
+       'PORT': '3306',                      # Set to empty string for default. Not used with sqlite3.
+   }
+</pre>
+<p>最后 还有一些：
+语言：
+LANGUAGE_CODE = 'zh-cn'
+时间：
+TIME_ZONE = 'Asia/Shanghai'
+</p><p>其他关于django的配置 朋友们可以去网络搜索django教程或者官网去看看 
+我的博客上面有个类似懒人安装的脚本 有兴趣可以去看看更详细的教程 <a href="http://sishengbang.tk" class="external free" title="http://sishengbang.tk" rel="nofollow">http://sishengbang.tk</a>
+如果我的这些步骤还有问题可以mail我：helio_s@163.com或者yuyanget@gmail.com
+或者我的博客www.younguy.tk
+qq也可以加我 不过要说明nginx+ubuntu+django：845262968
+</p>
+<a name="no_input_file_specified.E9.94.99.E8.AF.AF" id="no_input_file_specified.E9.94.99.E8.AF.AF"></a><h2><span class="editsection">[<a href="/index.php?title=Nginx&amp;action=edit&amp;section=11" title="编辑段落：no input file specified错误">编辑</a>]</span> <span class="mw-headline">no input file specified错误</span></h2>
+<pre>sudo vi /etc/nginx/sites-available/default</pre>
+<p>其中这个字段
+</p>
+<pre>location ~ \.php$ {
+root html;
+fastcgi_pass 127.0.0.1:9000;
+fastcgi_index index.php;
+fastcgi_param SCRIPT_FILENAME /var/www/nginx-default$fastcgi_script_name;
+include fastcgi_params;</pre>
+<p>注意
+</p>
+<pre>fastcgi_param SCRIPT_FILENAME /var/www/nginx-default$fastcgi_script_name;</pre>
+<p>/var/www/nginx-default 改为你的网站根目录，一般就是改成这个。
+server 字段下root 目录和网站根目录保持一致
+</p>
+<a name=".E5.AE.89.E8.A3.85Zend_Optimizer" id=".E5.AE.89.E8.A3.85Zend_Optimizer"></a><h2><span class="editsection">[<a href="/index.php?title=Nginx&amp;action=edit&amp;section=12" title="编辑段落：安装Zend Optimizer">编辑</a>]</span> <span class="mw-headline">安装Zend Optimizer</span></h2>
+<p>要求PHP版本为5.2，不支持Ubuntu10.04的PHP5.3，请参照<a href="/PHP5.2" title="PHP5.2">PHP5.2</a>。
+（Zend 5.5支持PHP5.3，下载地址：<a href="http://downloads.zend.com/guard/5.5.0/ZendGuardLoader-php-5.3-linux-glibc23-i386.tar.gz）" class="external free" title="http://downloads.zend.com/guard/5.5.0/ZendGuardLoader-php-5.3-linux-glibc23-i386.tar.gz）" rel="nofollow">http://downloads.zend.com/guard/5.5.0/ZendGuardLoader-php-5.3-linux-glibc23-i386.tar.gz）</a>
+</p><p>下载 <a href="http://www.zend.com/en/products/guard/downloads" class="external text" title="http://www.zend.com/en/products/guard/downloads" rel="nofollow">Zend Optimizer</a>。
+直接贴下载地址，参考版本号改（这是32位的），不然主页要注册才能下
+</p>
+<pre> http://downloads.zend.com/optimizer/3.3.9/ZendOptimizer-3.3.9-linux-glibc23-i386.tar.gz </pre>
+<pre>tar zxvf ZendOptimizer-3.3.9-linux-glibc23-i386.tar.gz</pre>
+<pre>cd ZendOptimizer-3.3.9-linux-glibc23-i386/data/5_2_x_comp
+sudo mkdir /usr/local/zend
+sudo cp ZendOptimizer.so /usr/local/zend </pre>
+<p>编辑php.ini
+</p>
+<pre>sudo gedit /etc/php5/cgi/php.ini</pre>
+<p>开头加入，注意标点符号要英文。
+</p>
+<pre>[Zend Optimizer]
+zend_optimizer.optimization_level=1  
+zend_extension=&quot;/usr/local/zend/ZendOptimizer.so&quot;</pre>
+<p>关闭php-cgi
+</p>
+<pre>sudo killall -HUP php-cgi</pre>
+<p>重启php-cgi
+</p>
+<pre>spawn-fcgi -a 127.0.0.1 -p 9000 -C 10 -u www-data -f /usr/bin/php-cgi</pre>
+<p>不需要重启nginx
+</p><p>还是上面那个phpinfo文件，要能看到如下信息
+</p>
+<pre>This program makes use of the Zend Scripting Language Engine:
+Zend Engine v2.2.0, Copyright (c) 1998-2009 Zend Technologies
+    with Zend Optimizer v3.3.9, Copyright (c) 1998-2009, by Zend Technologies</pre>
+<a name=".E5.AE.89.E8.A3.9DXCache" id=".E5.AE.89.E8.A3.9DXCache"></a><h2><span class="editsection">[<a href="/index.php?title=Nginx&amp;action=edit&amp;section=13" title="编辑段落：安裝XCache">编辑</a>]</span> <span class="mw-headline">安裝XCache</span></h2>
+<pre>sudo apt-get install php5-xcache</pre>
+<pre>root@ubuntu:/home/qii# dpkg -l | grep xcach
+ii  php5-xcache                          1.2.2-5                                         Fast, stable PHP opcode cacher</pre>
+<p>xcache配置文件路径是
+</p>
+<pre>/etc/php5/conf.d/xcache.ini</pre>
+<p>编辑php.ini
+</p>
+<pre>sudo gedit /etc/php5/cgi/php.ini</pre>
+<p>把xcache.ini的内容加入到php.ini。
+</p><p>关闭php-cgi
+</p>
+<pre>sudo killall -HUP php-cgi</pre>
+<p>重启php-cgi
+</p>
+<pre>spawn-fcgi -a 127.0.0.1 -p 9000 -C 10 -u www-data -f /usr/bin/php-cgi</pre>
+<p>不需要重启nginx
+检查安装是否成功
+</p>
+<pre>root@ubuntu:/home/qii# php -v
+PHP 5.2.10-2ubuntu6 with Suhosin-Patch 0.9.7 (cli) (built: Oct 23 2009 16:30:10) 
+Copyright (c) 1997-2009 The PHP Group
+Zend Engine v2.2.0, Copyright (c) 1998-2009 Zend Technologies
+    with XCache v1.2.2, Copyright (c) 2005-2007, by mOo</pre>
+<p>还有前面info.php页应该有XCache模块
+</p>
+<table>
+<tr>
+<td><div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:502px;"><a href="/File:Apachexcache.png" class="image" title="info页面的XCache模块"><img alt="" src="/images/thumb/2/28/Apachexcache.png/500px-Apachexcache.png" width="500" height="264" border="0" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/File:Apachexcache.png" class="internal" title="放大"><img src="/skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>info页面的XCache模块</div></div></div></div>
+</td></tr></table>
+<p>这里有点奇怪的是，如果不把xcache.ini的内容加入php.ini，apache也能载入XCache，但info.php上没XCache模块。
+</p>
+<a name=".E5.AE.89.E8.A3.85eAccelerator" id=".E5.AE.89.E8.A3.85eAccelerator"></a><h2><span class="editsection">[<a href="/index.php?title=Nginx&amp;action=edit&amp;section=14" title="编辑段落：安装eAccelerator">编辑</a>]</span> <span class="mw-headline">安装eAccelerator</span></h2>
+<pre>sudo apt-get install php5-dev</pre>
+<p>下载 <a href="http://www.eaccelerator.net/" class="external text" title="http://www.eaccelerator.net/" rel="nofollow">eAccelerator</a>
+</p>
+<pre>wget http://sourceforge.net/projects/eaccelerator/files/eaccelerator/eAccelerator%200.9.6.1/eaccelerator-0.9.6.1.tar.bz2</pre>
+<pre>tar jxvf eaccelerator-0.9.6.1.tar.bz2</pre>
+<pre>cd eaccelerator-0.9.6.1 </pre>
+<pre>phpize
+sudo ./configure -enable-eaccelerator=shared
+sudo make</pre> 
+<pre>qii@ubuntu:~/tmp/eaccelerator-0.9.6.1$ sudo make install
+Installing shared extensions:     /usr/lib/php5/20090626+lfs/
+</pre>
+<p>修改php.ini文件，安装为Zend扩展，最好放在开头，放到[zend]之前，免的出莫名其妙的问题：
+</p>
+<pre>sudo vi /etc/php5/cgi/php.ini</pre>
+<pre>[eaccelerator]
+zend_extension=&quot;/usr/lib/php5/20090626+lfs/eaccelerator.so&quot;  
+eaccelerator.shm_size=&quot;16&quot; 
+eaccelerator.cache_dir=&quot;/tmp/eaccelerator&quot; 
+eaccelerator.enable=&quot;1&quot; 
+eaccelerator.optimizer=&quot;1&quot; 
+eaccelerator.check_mtime=&quot;1&quot; 
+eaccelerator.debug=&quot;0&quot; 
+eaccelerator.filter=&quot;&quot; 
+eaccelerator.shm_max=&quot;0&quot; 
+eaccelerator.shm_ttl=&quot;0&quot; 
+eaccelerator.shm_prune_period=&quot;0&quot; 
+eaccelerator.shm_only=&quot;0&quot; 
+eaccelerator.compress=&quot;1&quot; 
+eaccelerator.compress_level=&quot;9&quot; 
+eaccelerator.allowed_admin_path=&quot;/var/www/nginx-default/control.php&quot;</pre>
+<p>创建cache缓存目录
+</p>
+<pre>eaccelerator.cache_dir=&quot;/var/cache/eaccelerator&quot;   这里定义cache路径</pre>
+<p>默认值是/tmp/eaccelerator，这非常简单因为任何人都对该目录可写，但是并不明智，因为重启后系统会自动清理该目录。一个更好的地方是/var/cache/eaccelerator。创建该目录并确保它对eAccelerator的使用者可写（通常该用户是你的网络服务器运行者，可能是www-data）。
+使用默认值的话这样继续：
+</p>
+<pre>mkdir /tmp/eaccelerator</pre>
+<pre>chmod 777 /tmp/eaccelerator</pre>
+<p>改成 /var/cache/eaccelerator的话这样继续，先改php.ini
+</p>
+<pre>eaccelerator.cache_dir=&quot;/var/cache/eaccelerator&quot; </pre>
+<pre>sudo mkdir /var/cache/eaccelerator
+sudo chown root:www-data /var/cache/eaccelerator
+sudo chmod u=rwx,g=rwx,o= /var/cache/eaccelerator</pre>
+<p>复制控制文件control.php到网站根目录
+</p>
+<pre>sudo cp control.php /var/www/nginx-default/</pre>
+<p>修改control.php的$user和$pw，默认是admin和eAccelerator
+</p>
+<pre>sudo vi /var/www/nginx-default/control.php </pre>
+<p>关闭php-cgi
+</p>
+<pre>sudo killall -HUP php-cgi</pre>
+<p>重启php-cgi
+</p>
+<pre>spawn-fcgi -a 127.0.0.1 -p 9000 -C 10 -u www-data -f /usr/bin/php-cgi</pre>
+<p>不需要重启nginx
+打开 <a href="http://localhost/control.php" class="external free" title="http://localhost/control.php" rel="nofollow">http://localhost/control.php</a>
+</p>
+<table>
+<tr>
+<td><div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:502px;"><a href="/File:NginxeAcceleratorcontrol.png" class="image" title="eAccelerator control.php页面"><img alt="" src="/images/thumb/2/28/NginxeAcceleratorcontrol.png/500px-NginxeAcceleratorcontrol.png" width="500" height="281" border="0" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/File:NginxeAcceleratorcontrol.png" class="internal" title="放大"><img src="/skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>eAccelerator control.php页面</div></div></div></div>
+</td></tr></table>
+<p>查看之前的info.php页面，有下列字段：
+</p>
+<pre>This program makes use of the Zend Scripting Language Engine:
+Zend Engine v2.2.0, Copyright (c) 1998-2009 Zend Technologies
+    with eAccelerator v0.9.6.1, Copyright (c) 2004-2010 eAccelerator, by eAccelerator
+    </pre>
+<a name=".E5.B1.8F.E8.94.BD.E8.BF.85.E9.9B.B7" id=".E5.B1.8F.E8.94.BD.E8.BF.85.E9.9B.B7"></a><h2><span class="editsection">[<a href="/index.php?title=Nginx&amp;action=edit&amp;section=15" title="编辑段落：屏蔽迅雷">编辑</a>]</span> <span class="mw-headline">屏蔽迅雷</span></h2>
+<p>新建
+</p>
+<pre>/etc/nginx/agent.conf</pre>
+<pre>if ($http_user_agent ~ &quot;Mozilla/4.0\ \(compatible;\ MSIE\ 6.0;\ Windows\ NT\ 5.1;\ SV1;\ .NET\ CLR\ 1.1.4322;\ .NET\ CLR\ 2.0.50727\)&quot;) { return 404; }
+</pre>
+<p>注意的是，空格和括弧需要使用“\”进行转义。
+</p><p>然后site配置中
+</p>
+<pre>include /etc/nginx/agent.conf;</pre>
+<p>迅雷usera-gent和这种做法失效的情况见<a href="/Apache#.E5.B1.8F.E8.94.BD.E8.BF.85.E9.9B.B7" title="Apache">Apache#屏蔽迅雷</a>
+</p>
+<a name=".E5.8F.82.E8.80.83" id=".E5.8F.82.E8.80.83"></a><h2><span class="editsection">[<a href="/index.php?title=Nginx&amp;action=edit&amp;section=16" title="编辑段落：参考">编辑</a>]</span> <span class="mw-headline">参考</span></h2>
+<p><a href="http://luy.li/2009/10/31/nginx-block-user_agent/" class="external text" title="http://luy.li/2009/10/31/nginx-block-user_agent/" rel="nofollow">nginx 禁止某个 User_Agent 的方法</a>
+</p>
+<a name=".E4.BA.86.E8.A7.A3.E6.9B.B4.E5.A4.9A" id=".E4.BA.86.E8.A7.A3.E6.9B.B4.E5.A4.9A"></a><h2><span class="editsection">[<a href="/index.php?title=Nginx&amp;action=edit&amp;section=17" title="编辑段落：了解更多">编辑</a>]</span> <span class="mw-headline">了解更多</span></h2>
+<ol>
+<li>Nginx 的中文维基：<a href="http://wiki.codemongers.com/NginxChs" class="external free" title="http://wiki.codemongers.com/NginxChs" rel="nofollow">http://wiki.codemongers.com/NginxChs</a></li>
+<li>Nginx 的中文站： <a href="http://www.nginx.cn" class="external free" title="http://www.nginx.cn" rel="nofollow">http://www.nginx.cn</a></li>
+</ol>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 168/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key ubuntuwiki:pcache:idhash:38387-0!1!0!!zh!2!zh and timestamp 20130526081956 -->
+<div class="printfooter">
+取自“<a href="http://wiki.ubuntu.org.cn/Nginx">http://wiki.ubuntu.org.cn/Nginx</a>”</div>
+			<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks"><a href="/Special:%E9%A1%B5%E9%9D%A2%E5%88%86%E7%B1%BB" title="Special:页面分类">1个分类</a>:&#32;<span dir='ltr'><a href="/Category:%E6%9C%8D%E5%8A%A1%E5%99%A8" title="Category:服务器">服务器</a></span></div></div>			<!-- end content -->
+
+		</div><!-- end of MAINCONTENT div -->	
+	
+	</div><!-- end of MBODY div -->
+
+	<div id="footer"><table><tr><td align="left" width="1%" nowrap="nowrap">
+		</td><td align="center">
+		<span id="f-viewcount">此页面已被浏览过47,409次。 </span>		<ul id="f-list">
+			<li id="f-credits">此页由Ubuntu中文的匿名用户于2013年5月26日 (星期日) 16:19的最后更改。 在<a href="/User:Huzi" title="User:Huzi">王万清</a>、<a href="/User:Qiii2006" title="User:Qiii2006">qiii2006</a>和<a href="/User:Fortruth" title="User:Fortruth">gjunming</a>和Ubuntu中文用户<a href="/User:Yexiaoxing" title="User:Yexiaoxing">Yexiaoxing</a>的工作基础上。</li>						<li id="f-about"><a href="/Ubuntu%E4%B8%AD%E6%96%87:%E5%85%B3%E4%BA%8E" title="Ubuntu中文:关于">关于Ubuntu中文</a></li>			<li id="f-disclaimer"><a href="/Ubuntu%E4%B8%AD%E6%96%87:%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E" title="Ubuntu中文:免责声明">免责声明</a></li>		</ul></td><td align="right" width="1%" nowrap="nowrap"><div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="/skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div></td></tr></table>
+
+	</div><!-- end of the FOOTER div -->
+</div><!-- end of the CONTAINER div -->
+
+<!-- Served in 0.187 secs. -->
+</body>
+</html>

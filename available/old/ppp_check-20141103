@@ -1,0 +1,89 @@
+#################################################################
+#!/bin/bash
+#To dail up VPN automaticlly on CentOS
+#Made by LiuJun, liujun_live@msn.com ,  2014-10-14
+#################################################################
+
+#Source function library.
+. /etc/init.d/functions
+
+#Export PATH
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+
+####################
+#配置拔号名称
+####################
+#后期维护,只需修改如下对应变量即可
+export vpn_flag=vpn
+export vpn_gateway=192.168.10.1
+export aliyun_gateway=$(route -ne|grep -w UG|awk '{print $2}'|uniq -d)
+
+####################
+#定义相关函数
+####################
+pppd_start(){
+killall pppd &>/dev/null
+killall pppd &>/dev/null
+pppd call $vpn_flag
+}
+
+pppd_route(){
+route_flag=$(route -ne|awk '{print $2}'|grep $vpn_gateway)
+if [ "$route_flag" != "$vpn_gateway" ];then
+	route del default gw $aliyun_gateway &>/dev/null
+	route add default gw $vpn_gateway &>/dev/null
+fi
+}
+
+pppd_check(){
+flag=$(ifconfig|grep ppp0)
+ipaddr_ppp0=$(ifconfig ppp0 2>/dev/null|grep 'inet addr:'|awk '{print $2}'|cut -d: -f2)
+#flag=$(ping -c2 -i1 -W1 $vpn_gateway|grep loss|awk -F, '{print $3}'|awk -F% '{print $1}')
+#if [ "$flag" -eq "0" ];then
+if [ ! "$flag" == "" ];then
+	echo -e "\e[31;1m$vpn_flag\e[0m is \e[32;1mup\e[0m with \e[33;1m$ipaddr_ppp0\e[0m"
+	pppd_route
+	else
+		echo -e "Connecting \e[31;1m$vpn_flag\e[0m===>\e[32;1m$vpn_gateway\e[0m"
+		pppd_start
+		sleep 8
+		ipaddr_flag=$(ifconfig ppp0 2>/dev/null|grep 'inet addr:'|awk '{print $2}'|cut -d: -f2)
+		if [ -n "$ipaddr_flag" ];then
+			pppd_route
+			echo -e "Routing \e[31;1m$ipaddr_flag\e[0m===>\e[32;1m$vpn_gateway\e[0m"
+		fi
+		
+fi
+}
+
+
+####################
+#函数调用
+####################
+while true
+do
+	pppd_check
+	sleep 5
+done
+
+#while true
+#do
+#	flag_start=$(ifconfig|grep ppp0)
+#	if [  "$flag_start" == "" ];then
+#		pppd_start
+#		sleep 10
+#		pppd_route
+#		else
+#			for((i=1;i<=590;i++))
+#			do
+#				pppd_check
+#				sleep 1
+#				if [ "$i" == "590" ];then
+#					echo -e "\e[31;1mRecall $vpn_flag\e[0m"
+#					pppd_start
+#					sleep 8
+#					pppd_route
+#				fi
+#			done
+#	fi
+#done

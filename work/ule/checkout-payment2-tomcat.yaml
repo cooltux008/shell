@@ -1,0 +1,51 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: checkout-payment2-tomcat
+spec:
+  replicas: 2 
+  template:
+    metadata:
+      labels:
+        app: checkout-payment2-tomcat
+      annotations:
+        pod.beta.kubernetes.io/init-containers: '[
+          {
+               "name": "war",
+               "image": "192.168.151.33/ule_beta/checkout-payment2-tomcat-image:v2",
+               "command": ["cp","/payment2.war","/data"],
+               "volumeMounts": [
+                   {
+                      "name": "data",
+                      "mountPath": "/data"
+                   }
+               ]
+          }
+        ]'
+    spec:
+      containers:
+      - name: checkout-payment2-tomcat
+        image: 192.168.151.33/ule_beta/checkout-payment2-tomcat:v5
+        livenessProbe:
+          tcpSocket:
+            port: liveness-port
+          initialDelaySeconds: 15
+          timeoutSeconds: 1
+        ports:
+          - name: liveness-port
+            containerPort: 8080
+        volumeMounts:
+        - mountPath: "/data/postmall/tomcat/webapps"
+          name: data
+       # - mountPath: "/configmap"
+       #   name: config
+       #   command: ["cp","/configmap/lihao","/data/postmall/tomcat/webapps/payment2"]
+      volumes:
+      - name: data
+        emptyDir: {}
+      #- name: config
+      #  configMap:
+      #    name: game-config 
+      #    items:
+      #    - key: lihao
+      #      path: lihao 
