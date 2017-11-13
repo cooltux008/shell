@@ -27,7 +27,7 @@ export openldap_log_dir="$openldap_base_dir/var/logs"
 
 export build_dir="/usr/local/src"
 export openldap_tar=$1
-export openldap_version=$(echo $openldap_tar|grep -oP "(?<=openldap-).*(?=.tar.*)")
+export openldap_version=$(echo $openldap_tar|grep -oP "(?<=openldap-).*(?=.tgz|.tbz2|.tar.gz|.tar.bz2)")
 
 export suffix='"dc=example,dc=com"'
 export rootdn='"cn=Manager,dc=example,dc=com"'
@@ -173,22 +173,7 @@ $openldap_base_dir/sbin/slaptest -f $openldap_conf_file -F $openldap_base_dir/et
 #########################################################
 openldap_init_script(){
 echo ""
-openldap_init_tar=$(ls ltb-project-openldap-initscript-*.tar.gz 2>/dev/null)
-if [ -z "$openldap_init_tar" ];then
-	curl http://tools.ltb-project.org/attachments/download/763/ltb-project-openldap-initscript-2.1.tar.gz  --retry 3 -o ltb-project-openldap-initscript-2.1.tar.gz
-	openldap_init_tar=$(ls ltb-project-openldap-initscript-*.tar.gz 2>/dev/null)
-	[ -z "$openldap_init_tar" ] && (echo -e "\e[31;1mError\e[0m(No initscript)";exit 1)
-fi
-
-tar -xvf $openldap_init_tar
-mv ltb-project-openldap-initscript-*/slapd /etc/init.d
-sed -i "/^SLAPD_PATH=/c SLAPD_PATH=$openldap_base_dir" /etc/init.d/slapd
-sed -i "/^BDB_PATH=/c  BDB_PATH=${berkeleydb_base_dir:=/usr}" /etc/init.d/slapd
-sed -i "/^SLAPD_USER=/c  SLAPD_USER=$openldap_user" /etc/init.d/slapd
-sed -i "/^SLAPD_GROUP=/c  SLAPD_GROUP=$openldap_group" /etc/init.d/slapd
-[ $? -eq 0 ] && echo -e "\e[31;1mCreate /etc/init.d/slapd \e[0m \e[32;1msuccessfully!\e[0m" || (echo -e "/etc/init.d/slapd \e[31;1merror\e[0m";exit 1)
-
-echo ""
+mv slapd /etc/init.d
 chmod +x /etc/init.d/slapd
 chkconfig slapd on
 echo ""
