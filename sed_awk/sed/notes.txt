@@ -1,0 +1,1 @@
+sed -n 's/\b\(the\)\1\b$/<\1>[\U\1]\E\1/p' words.txt

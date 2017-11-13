@@ -1,0 +1,25 @@
+	# gawk profile, created Sun Apr 17 01:05:16 2016
+
+	# BEGIN block(s)
+
+	BEGIN {
+     1  	FS = ","
+     1  	print "Report Generate On:", strftime("%a %b %d %H:%M:%S %Z %Y", systime())
+	}
+
+	# Rule(s)
+
+     5  {
+     5  	if ($5 <= 5) { # 2
+     2  		print "Buy More: Order", $2, "immediately!"
+     3  	} else {
+     3  		print "Sell More: Give discount on", $2, "immediately!"
+		}
+	}
+
+	# END block(s)
+
+	END {
+     1  	print "-------"
+	}
+

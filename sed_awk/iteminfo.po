@@ -1,0 +1,28 @@
+#: iteminfo.awk:5
+msgid "START_TIME:"
+msgstr "Report Generated On:"
+
+#: iteminfo.awk:6
+msgid "Num"
+msgstr "ID"
+
+#: iteminfo.awk:7
+msgid "Description"
+msgstr "描述"
+
+#: iteminfo.awk:8
+msgid "Type"
+msgstr "类型"
+
+#: iteminfo.awk:9
+msgid "Price"
+msgstr "价格"
+
+#: iteminfo.awk:10
+msgid "Qty"
+msgstr "数量"
+
+#: iteminfo.awk:11
+msgid "---------------------------------------------------\n"
+msgstr "===================================================\n"
+

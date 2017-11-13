@@ -1,0 +1,5 @@
+log: input.txt
+log:
+log: testing resumed
+log:
+log:output created
