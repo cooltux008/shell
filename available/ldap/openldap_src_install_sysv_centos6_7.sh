@@ -17,7 +17,7 @@ fi
 #########################################################
 export openldap_user=openldap
 export openldap_group=openldap
-export package="gcc gcc-c++ unzip gzip bzip2 openssl-devel cyrus-sasl-devel krb5-devel tcp_wrappers-devel libtool-ltdl-devel openslp-devel unixODBC-devel mysql-devel"
+export package="gcc gcc-c++ unzip gzip bzip2 openssl-devel cyrus-sasl-devel krb5-devel tcp_wrappers-devel libtool-ltdl-devel openslp-devel unixODBC-devel mysql-devel libdb-devel"
 
 #export berkeleydb_base_dir="/opt/berkeleydb"
 
