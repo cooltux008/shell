@@ -1,5 +1,4 @@
-cat >> /etc/security/limits.conf <EOF
-
+cat >> /etc/security/limits.conf <<'EOF'
 root	-	nofile	65536
 root	-	nproc	16384
 root	-	stack	10240
