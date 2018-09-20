@@ -1,5 +1,5 @@
 cat > /etc/security/limits.d/20-nproc.conf <<'EOF'
-root	-	nofile	unlimited
+root	-	nofile	65536
 root	-	nproc	16384
 root	-	stack	10240
 root	-	memlock	unlimited
