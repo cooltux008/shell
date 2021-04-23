@@ -10,6 +10,7 @@ calico/kube-controllers
 calico/ctl
 google_containers/metrics-server-amd64
 google_containers/addon-resizer
+google_containers/pause-amd64
 kubernetesui/dashboard
 kubernetesui/metrics-scraper
 coredns/coredns
