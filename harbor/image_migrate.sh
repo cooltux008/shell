@@ -39,7 +39,7 @@ done
 #skopeo sync dir to harbor
 image_sync() {
 for project in $(ls ${SKOPEO_DIR}); do
-	docker run -i \
+	docker run -i --rm \
 		-v ${SKOPEO_DIR}:${SKOPEO_DIR} \
 		-v /etc/hosts:/etc/hosts \
 		ananace/skopeo:latest sync \
