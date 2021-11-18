@@ -22,6 +22,7 @@ do
         name=$(echo ${image} | awk -F"(.*repositories/)|(/_manifests/tags/)|(/current)" '{print $1,$2":"$3}'|tr -d ' ')
         link=$(cat ${image}/link | awk -F':' '{print $2}')
         manifest="${BLOB_DIR}/${link:0:2}/${link}/data"
+	echo "Found ${name}"
         #硬链manifest.json
         mkdir -p "${SKOPEO_DIR}/${name}"
         ln -f ${manifest} ${SKOPEO_DIR}/${name}/manifest.json
@@ -51,6 +52,7 @@ for repo in ${all_repos}; do
 { "project_name": "${repo}", "public": true }
 EOF
 	curl -k -u "${HARBOR_USER}:${HARBOR_PASS}" -X POST -H "Content-Type: application/json" "https://${DEST_DOMAIN}/api/v2.0/projects" -d @createproject.json
+	echo "Created project ${repo}"
 	fi
 	index=$[$index+1]
 done
@@ -61,16 +63,27 @@ done
 image_sync() {
 #statistic all images
 all_repos=$(ls ${SKOPEO_DIR})
-images_count=0
+all_images_count=0
+repo_images_count_array_index=0
 for repo in ${all_repos}
 do
-	images_in_repo=$(find ${SKOPEO_DIR}/${repo}/* -type d|wc -l)
-	images_count=$[${images_count}+${images_in_repo}]
+	repo_images_count=$(find ${SKOPEO_DIR}/${repo}/* -type d|wc -l)
+	if [ ${repo_images_count} -eq 0 ];then
+		repo_images_count=1
+	fi
+	all_images_count=$[${all_images_count}+${repo_images_count}]
+	repo_images_count_array[${repo_images_count_array_index}]=${repo_images_count}
+	repo_images_count_array_index=$[${repo_images_count_array_index}+1]
+
 done
 
-index=1
+the_number_of_image=0
+repo_images_count_array_index=0
 for repo in ${all_repos}; do
-	echo [${index}/${images_count}]
+	echo [$[${the_number_of_image}+${repo_images_count_array[${repo_images_count_array_index}]}]/${all_images_count}]
+	echo
+	the_number_of_image=$[${the_number_of_image}+${repo_images_count_array[${repo_images_count_array_index}]}]
+	repo_images_count_array_index=$[${repo_images_count_array_index}+1]
 	if [ -f ${SKOPEO_DIR}/${repo}/manifest.json ];then
 		dest_repo=${DEST_DOMAIN}/root
 	else
@@ -88,12 +101,11 @@ for repo in ${all_repos}; do
                 --dest=docker \
 		$@ \
                 ${SKOPEO_DIR}/${repo} ${dest_repo}
-
-	index=$[$index+1]
+	echo
 done
 }
 
 #run
-skopeo_dir_gen
-create_repo
+#skopeo_dir_gen
+#create_repo
 image_sync $@
