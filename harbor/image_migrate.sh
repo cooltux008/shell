@@ -3,7 +3,7 @@
 DEST_DOMAIN="yourdomain.com"
 SRC_REGISTRY_DATA_DIR="/opt/registry"
 HARBOR_USER="admin"
-HARBOR_PASS="cleverPWD@sq.2021"
+HARBOR_PASS="Harbor12345"
 
 #registry 存储的 blob 目录 | repositories 目录 | skopeo 目录
 BLOB_DIR="${SRC_REGISTRY_DATA_DIR}/docker/registry/v2/blobs/sha256"
@@ -106,6 +106,6 @@ done
 }
 
 #run
-#skopeo_dir_gen
-#create_repo
+skopeo_dir_gen
+create_repo
 image_sync $@
