@@ -4,9 +4,9 @@ DEST_REGISTRY=dest.repo.com:5000
 SRC_USER=hello
 SRC_PASSWORD=hello
 
-while read image 
+for IMAGE in `cat byte.txt`
 do
-TARGET_REPO=$(echo ${IMAGE}|awk -F'/' '{print $2}')
+DEST_REPO=`echo ${IMAGE} | awk -F'/' '{print $1}'`
 docker run -i --rm \
     -v /etc/hosts:/etc/hosts \
     ananace/skopeo:latest sync \
@@ -14,5 +14,5 @@ docker run -i --rm \
     --src-creds=${SRC_USER}:${SRC_PASSWORD} \
     --src=docker \
     --dest=docker \
-    ${IMAGE} ${DEST_REGISTRY}/${TARGET_REPO}
-done < byte.txt
+    ${SRC_REGISTRY}/${IMAGE} ${DEST_REGISTRY}/${DEST_REPO}
+done
