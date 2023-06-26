@@ -21,7 +21,7 @@ ingress/kube-webhook-certgen
 
 for repo in ${repos[*]}
 do
-	docker run -i ananace/skopeo:latest sync \
+	docker run --rm -i quay.io/skopeo/stable:v1.12 sync \
 	--src-creds=admin:Harbor12345 \
 	--dest-creds=admin:Harbor12345 \
 	--src-tls-verify=false \
